@@ -1,0 +1,70 @@
+﻿@model Web.Models.FastData
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="CSSTableGenerator">
+
+    <tbody>
+        <tr>
+            <td>Название блока</td>
+            <td>Загруженный контент</td>
+        </tr>
+        <tr>
+            <td>Блок №1</td>
+            <td id="block1">@Model.Date</td>
+        </tr>
+        <tr>
+            <td>Блок №2</td>
+            <td id="block2">Загрузка блока №2................................</td>
+        </tr>
+        <tr>
+            <td>Блок №3</td>
+            <td id="block3">Загрузка блока №3................................</td>
+        </tr>
+        <tr>
+            <td>Блок №4</td>
+            <td id="block4">Загрузка блока №4................................</td>
+        </tr>
+        <tr>
+            <td>Блок №5</td>
+            <td id="block5">Загрузка блока №5................................</td>
+        </tr>
+        <tr>
+            <td>Блок №6</td>
+            <td id="block6">Загрузка блока №6................................</td>
+        </tr>
+        <tr>
+            <td>Блок №7</td>
+            <td id="block7">Загрузка блока №7................................</td>
+        </tr>
+        <tr>
+            <td>Блок №8</td>
+            <td id="block8">Загрузка блока №8................................</td>
+        </tr>
+        <tr>
+            <td>Блок №9</td>
+            <td id="block9">Загрузка блока №9................................</td>
+        </tr>
+        <tr>
+            <td>Блок №10</td>
+            <td id="block10">Загрузка блока №10................................</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function() {
+        $('#block2').load('@Url.Action("Block2", "Home")');
+        $('#block3').load('@Url.Action("Block3", "Home")');
+        $('#block4').load('@Url.Action("Block4", "Home")');
+        $('#block5').load('@Url.Action("Block5", "Home")');
+        $('#block6').load('@Url.Action("Block6", "Home")');
+        $('#block7').load('@Url.Action("Block7", "Home")');
+        $('#block8').load('@Url.Action("Block8", "Home")');
+        $('#block9').load('@Url.Action("Block9", "Home")');
+        $('#block10').load('@Url.Action("Block10", "Home")');
+    });
+</script>

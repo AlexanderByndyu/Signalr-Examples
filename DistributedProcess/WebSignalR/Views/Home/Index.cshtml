@@ -1,0 +1,20 @@
+﻿<button id="start-creation">Начать построение отчета</button>
+<br/>
+Percents: <span id="progress">not started</span>
+
+<script>
+    $(function() {
+        $('#start-creation').on('click', function() {
+            $(this).attr("disabled", "disabled");
+
+            $.connection.hub.start().done(function() {
+                $.get('@Url.Action("StartLongProcess", "Home")');
+            });
+        });
+
+        var simpleHub = $.connection.simpleHub;
+        simpleHub.client.showPercent = function(percent) {
+            $('#progress').html(percent);
+        };
+    });
+</script>

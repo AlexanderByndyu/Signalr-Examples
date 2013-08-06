@@ -1,0 +1,57 @@
+﻿@model WebSignalR.Models.FastData
+
+@{
+    ViewBag.Title = "title";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<table class="CSSTableGenerator">
+
+    <tbody>
+        <tr>
+            <td>Название блока</td>
+            <td>Загруженный контент</td>
+        </tr>
+        <tr>
+            <td>Блок №1</td>
+            <td id="block1">@Model.Date</td>
+        </tr>
+        <tr>
+            <td>Блок №2</td>
+            <td id="block2">Загрузка блока №2................................</td>
+        </tr>
+        <tr>
+            <td>Блок №3</td>
+            <td id="block3">Загрузка блока №3................................</td>
+        </tr>
+        <tr>
+            <td>Блок №4</td>
+            <td id="block4">Загрузка блока №4................................</td>
+        </tr>
+        <tr>
+            <td>Блок №5</td>
+            <td id="block5">Загрузка блока №5................................</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $(function () {
+        var simpleHub = $.connection.simpleHub;
+            
+        $.connection.hub.start().done(function() {
+            simpleHub.server.block2().done(function(data) {
+                $('#block2').html(data);
+            });
+            simpleHub.server.block3().done(function(data) {
+                $('#block3').html(data);
+            });
+            simpleHub.server.block4().done(function(data) {
+                $('#block4').html(data);
+            });
+            simpleHub.server.block5().done(function(data) {
+                $('#block5').html(data);
+            });
+        });
+    });
+</script>

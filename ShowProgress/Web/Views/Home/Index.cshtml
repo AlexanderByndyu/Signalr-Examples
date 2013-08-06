@@ -1,0 +1,17 @@
+﻿<button id="start-creation">Начать построение отчета</button>
+
+Percents: <span id="progress">0</span>%
+
+<script>
+    $(function() {
+        $('#start-creation').on('click', function() {
+            $(this).attr("disabled", "disabled");
+
+            $.get('@Url.Action("StartLongProcess", "Home")');
+
+            setInterval(function () {
+                $('#progress').load('@Url.Action("GetProgress", "Home")');
+            }, 3000);
+        });
+    });
+</script>
